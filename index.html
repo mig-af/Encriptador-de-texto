@@ -9,23 +9,25 @@
 </head>
 
 <body>
-    <header>
+    <header class="header">
         <img src="./assets/Vector.png" alt="logo del sitio">
     </header>
-    <main>
-        <input type="text" name="text" id="text">
-        <p> <img src="./assets/exclamacion.png" alt="imagen signo exclamacion"> Solo letras minúsculas y sin acentos</p>
-        
-        <section>
-            <button>encriptar</button>
-            <button>desencriptar</button>
+    <main class="encriptador">
+        <section class="encriptador__contenido">
+            <input class="encriptador__contenido__input" type="text" name="text" id="text" placeholder="Ingrese texto aqui">
+            
+            <section class="encriptador__contenido__botones">
+                <p class="encriptador__contenido__texto" ><img class="" src="./assets/exclamacion.png" alt="imagen signo exclamacion"> Solo letras minúsculas y sin acentos</p>
+
+                <button id="encriptar">encriptar</button>
+                <button id="desencriptar">desencriptar</button>
+            </section>
         </section>
         
-
-        <section>
-            <img src="./assets/Muñeco.png" alt="">
-            <p>Ningún mensaje fue encontrado</p>
-            <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+        <section class="encriptador__resultado">
+            <img class="encriptador__resultado__imagen" src="./assets/Muñeco.png" alt="">
+            <p class="encriptador__resultado__texto">Ningún mensaje fue encontrado</p>
+            <input class="encriptador__resultado__input" type="text" name="" id="" placeholder="Ingresa el texto que desees encriptar o desencriptar">
         </section>
     </main>
 

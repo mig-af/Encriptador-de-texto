@@ -9,25 +9,30 @@
 </head>
 
 <body>
-    <header class="header">
+    <div class="header">
         <img src="./assets/Vector.png" alt="logo del sitio">
-    </header>
+    </div>
     <main class="encriptador">
         <section class="encriptador__contenido">
-            <input class="encriptador__contenido__input" type="text" name="text" id="text" placeholder="Ingrese texto aqui">
+            <!--<input class="encriptador__contenido__input" type="text" name="text" id="text" placeholder="Ingrese texto aqui"> -->
+            <textarea class="encriptador__contenido__input" name="text" id="text" placeholder="Ingrese el texto aqui"></textarea>
             
+            <p class="encriptador__contenido__texto" ><img src="./assets/exclamacion.png" alt="imagen signo exclamacion"> Solo letras minúsculas y sin acentos</p>
             <section class="encriptador__contenido__botones">
-                <p class="encriptador__contenido__texto" ><img class="" src="./assets/exclamacion.png" alt="imagen signo exclamacion"> Solo letras minúsculas y sin acentos</p>
-
-                <button id="encriptar">encriptar</button>
-                <button id="desencriptar">desencriptar</button>
+                
+                <button class="encriptador__contenido__botonEncriptar" id="encriptar">encriptar</button>
+                <button class="encriptador__contenido__botonDesencriptar" id="desencriptar">desencriptar</button>
             </section>
         </section>
         
         <section class="encriptador__resultado">
             <img class="encriptador__resultado__imagen" src="./assets/Muñeco.png" alt="">
-            <p class="encriptador__resultado__texto">Ningún mensaje fue encontrado</p>
-            <input class="encriptador__resultado__input" type="text" name="" id="" placeholder="Ingresa el texto que desees encriptar o desencriptar">
+            
+            <section class="encriptador__resultado__texto">
+                <p class="encriptador__resultado__texto__mensaje">Ningún mensaje fue encontrado</p>
+                <textarea class="encriptador__resultado__texto__input" name="text" id="text" placeholder="Ingresa el texto que desees encriptar o desencriptar."></textarea>
+            </section>
+            
         </section>
     </main>
 
@@ -36,5 +41,5 @@
     </footer>
 </body>
 
-<script src="./app.js"></script>
+<script src="./scripts/app.js"></script>
 </html>

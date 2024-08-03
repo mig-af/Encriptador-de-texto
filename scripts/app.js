@@ -82,20 +82,12 @@ let ja = desencriptarPalabra("Lai cobermufatnimAescaicimesobern foberrenternsent
 let caracteresNoPermitidos = /[A-Z á-ú à-ù Ñ !@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?]/g
 let siu = `[A-Z á-ú à-ù Ñ !@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?]`.split("");
 function verificarCaracteres(texto){
-    //let existenCaracteres = (texto.match(caracteresNoPermitidos) != null)? true : false 
-    //console.log(existenCaracteres);
-    for(let i=0; i<texto.length; i++){
-        if(texto[i] === siu[i]){
-            console.log(texto[i]);
-        }else{
-            console.log("no encontrado", texto[i], "==", siu[i]);
-        }
-        if(i == siu.length){
-            i = 0;
-        }
-}    
+    //Verificamos si hay caracteres especiales, si es true, devolvera una lista con un booleano y la letra que se encontro
+    //si no se encuentra nada, devolvera un false
+    let existenCaracteres = (texto.match(caracteresNoPermitidos) != null)? [true, texto.match(caracteresNoPermitidos)] : false 
+    return existenCaracteres;
 }
-verificarCaracteres("hola");
+console.log(verificarCaracteres("holaaks"));
 
 
 

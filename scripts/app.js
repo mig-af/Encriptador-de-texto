@@ -1,40 +1,21 @@
 
 
-const palabras= {
-    "a":"ai",
-    "e":"enter",
-    "i":"imes",
-    "o":"ober",
-    "u":"ufat"
-}
-
-
 let word = "cobermufatnimescaicimesobern";
 
-let lista = ["ai", "enter", "imes", "ober", "ufat"];
-
-function desencriptar(palabra){
-    
-    let nueva = palabra;
-    let cont = 0;
-    for(let i=0; i<palabra.length; i++){
-        if(cont > lista.length){cont = 0}
-        if(nueva.match(lista[cont]) != null){
-            console.log(lista[cont], cont);
-            nueva = nueva.replace(lista[cont], Object.keys(palabras)[cont]);
-            console.log(nueva);
-            cont ++;
-        }else{
-            cont ++;
-            continue;
-    }
-    console.log(nueva);
-}
-}
-console.log(Object.keys(palabras));
+let letrasParaDesencriptar = ["ai", "enter", "imes", "ober", "ufat"];
+let vocales = ["a", "e", "i", "o", "u"];
 
 
-function des(palabrita){
+
+
+
+
+
+
+
+
+
+function desencriptarPalabra(palabrita){
 
     //inicializamos la variable desencriptado para hacer un mejor control del bucle while
     let desencriptado = false;
@@ -54,12 +35,12 @@ function des(palabrita){
     while(desencriptado != true){
         
         //Verificamos 
-        if(cont > lista.length-1){cont=0}
+        if(cont > letrasParaDesencriptar.length-1){cont=0}
         
         //buscamos las coincidencias de las letras que queremos desencriptar en la palabra que nos dio el usuario
-        if(palabraDesencriptada.match(lista[cont]) != null){
+        if(palabraDesencriptada.match(letrasParaDesencriptar[cont]) != null){
             //reemplazamos
-            palabraDesencriptada = palabraDesencriptada.replace(lista[cont], Object.keys(palabras)[cont]);
+            palabraDesencriptada = palabraDesencriptada.replace(letrasParaDesencriptar[cont], vocales[cont]);
             
             //volvemos a controlador a 0 por que aun hay palabras para desencriptar
             controlador = 0;
@@ -72,10 +53,11 @@ function des(palabrita){
             
             //Si controlador es mayor que el numero de palabras("enter", "imes", "ober " etc)
             //cortamos el bucle y damos por finalizado todo por que se encontraron todas las palabras
-            if(controlador > lista.length){
-                console.log(palabraDesencriptada);
+            if(controlador > letrasParaDesencriptar.length){
+                //console.log(palabraDesencriptada);
                 
                 desencriptado = true;
+                
             }
         }  
         cont ++;
@@ -90,39 +72,31 @@ function des(palabrita){
         }
 
     }
+    return palabraDesencriptada;
 
 }
 
-des("Lai cobermufatnimescaicimesobern foberrenternsenter baisenters coberncenterptufatailenters denter lai cobermufatnimescaicimesobern");
+let ja = desencriptarPalabra("Lai cobermufatnimAescaicimesobern foberrenternsenter baisenters coberncenterptufatailenters denter lai cobermufatnimescaicimesobern");
 
-/*
-setInterval(()=>{
-    let cantidadDeVecesQueSeVerifico;
-    
-    let desencriptado = false;
-    if(cont > 4){cont=0}
-    
-    
-   
-    if(nu.match(lista[cont]) != null){
-        nu = nu.replace(lista[cont], Object.keys(palabras)[cont])
-        console.log(true);
-        nuu = 0;
-    }else{
-        console.log(null);
-        nuu ++
-        console.log(nuu);
-        if(nuu > lista.length){
-            console.log(nu);
+
+let caracteresNoPermitidos = /[A-Z á-ú à-ù Ñ !@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?]/g
+let siu = `[A-Z á-ú à-ù Ñ !@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?]`.split("");
+function verificarCaracteres(texto){
+    //let existenCaracteres = (texto.match(caracteresNoPermitidos) != null)? true : false 
+    //console.log(existenCaracteres);
+    for(let i=0; i<texto.length; i++){
+        if(texto[i] === siu[i]){
+            console.log(texto[i]);
+        }else{
+            console.log("no encontrado", texto[i], "==", siu[i]);
         }
-    }
+        if(i == siu.length){
+            i = 0;
+        }
+}    
+}
+verificarCaracteres("hola");
 
-    
-    /*console.log(cont, nu);
-    lis++;
-    cont++;
-}, 500)
 
-*/
 
 

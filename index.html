@@ -9,34 +9,40 @@
 </head>
 
 <body>
-    <div class="header">
-        <img src="./assets/Vector.png" alt="logo del sitio">
-    </div>
+    <header class="header">
+        <img class="header__logo" src="./assets/Vector.png" alt="logo del sitio">
+    </header>
     <main class="encriptador">
         <section class="encriptador__contenido">
             <!--<input class="encriptador__contenido__input" type="text" name="text" id="text" placeholder="Ingrese texto aqui"> -->
-            <textarea class="encriptador__contenido__input" name="text" id="text" placeholder="Ingrese el texto aqui"></textarea>
+            <textarea class="encriptador__contenido__input" name="texto" id="texto" placeholder="Ingrese el texto aqui"></textarea>
             
             <p class="encriptador__contenido__texto" ><img src="./assets/exclamacion.png" alt="imagen signo exclamacion"> Solo letras minúsculas y sin acentos</p>
             <section class="encriptador__contenido__botones">
                 
-                <button class="encriptador__contenido__botonEncriptar" id="encriptar">encriptar</button>
+                <button class="encriptador__contenido__botonEncriptar" onclick="encriptar();" id="encriptar">encriptar</button>
                 <button class="encriptador__contenido__botonDesencriptar" id="desencriptar">desencriptar</button>
             </section>
         </section>
         
         <section class="encriptador__resultado">
             <img class="encriptador__resultado__imagen" src="./assets/Muñeco.png" alt="">
+
+            <div class="encriptador__resultado__texto__encriptado">
+                <p class="texto__encriptado" id="textoEncriptado"></p>
+                <button class="texto__encriptado__boton__copiar">Copiar</button>
+            </div>
             
             <section class="encriptador__resultado__texto">
                 <p class="encriptador__resultado__texto__mensaje">Ningún mensaje fue encontrado</p>
                 <textarea class="encriptador__resultado__texto__input" name="text" id="text" placeholder="Ingresa el texto que desees encriptar o desencriptar."></textarea>
             </section>
-            
+        
         </section>
     </main>
 
-    <footer>
+    <footer class="footer">
+        <p>Desarrollado por Miguel A.F para Alura Latam</p>
 
     </footer>
 </body>

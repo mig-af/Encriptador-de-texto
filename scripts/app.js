@@ -1,8 +1,9 @@
 
-let letrasParaDesencriptar = ["ai", "enter", "imes", "ober", "ufat"];
+let letrasParaDesencriptar = [/ai/g, /enter/g, /imes/g, /ober/g, /ufat/g];
 let vocales = ["a", "e", "i", "o", "u"];
-let caracteresNoPermitidos = /[A-Z á-ú à-ù Ñ !@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?]/g
-let primeraEncriptacion = false;
+let caracteresNoPermitidos = /[A-Zá-úà-ùÑ!@#$%^&*)(_+\-=\[\]{};:"\\|,.<>\/?]/g
+let primeraEncriptacion = true;
+
 
 
 function desencriptarPalabra(palabrita){
@@ -16,6 +17,9 @@ function desencriptarPalabra(palabrita){
     //esta variable es para cortar el bucle si ocurre algun error
     let cortarBucle = 0;
 
+    //
+    let coincidencias = 0;
+
     //Analizamos cada letra de la palabra
     while(desencriptado != true){
         
@@ -25,14 +29,20 @@ function desencriptarPalabra(palabrita){
         //buscamos las coincidencias
         if(palabraDesencriptada.match(letrasParaDesencriptar[cont]) != null){
             palabraDesencriptada = palabraDesencriptada.replace(letrasParaDesencriptar[cont], vocales[cont]);
-            
+            coincidencias ++;
             controlador = 0;
         }else{
         
             controlador ++;
+            
+            if(coincidencias < 5){
+                desencriptado = true;
+
+            }
             //verificamos si ya se analizaron todas las coincidencias
             if(controlador > letrasParaDesencriptar.length){
                 //console.log(palabraDesencriptada);
+                
                 desencriptado = true;
             }
         }  
@@ -46,12 +56,6 @@ function desencriptarPalabra(palabrita){
 
     }
     return palabraDesencriptada;
-}
-
-
-function verificarCaracteres(texto, caracteres){
-    let existenCaracteres = (texto.match(caracteresNoPermitidos) != null)? [true, texto.match(caracteres)] : false 
-    return existenCaracteres;
 }
 
 
@@ -82,43 +86,93 @@ function encriptarFrase(texto){
 
 }
 
-
-function encriptar(){
-
-    if(primeraEncriptacion == true){
-        let textoUsuario = document.getElementById("texto").value;
-        document.getElementById("textoEncriptado").innerHTML=textoUsuario;
-        
-        return;
-    }else{
-        //console.log(encriptado);
-        cambiarEstiloElemento(".encriptador__resultado__texto__encriptado", "display", "flex");
-        //document.querySelector(".encriptador__resultado__texto__encriptado").style.display="flex";
-        eliminarElemento(".encriptador__resultado__imagen");
-        eliminarElemento(".encriptador__resultado__texto");
-        
-        let text = document.getElementById("texto").value;
-        //cambiarEstiloElemento(".encriptador__resultado__texto__encriptado", "display", "flex");
-        //document.querySelector(".encriptador__resultado__texto__encriptado").style.display="flex";
-        document.getElementById("textoEncriptado").innerHTML=text;
-        primeraEncriptacion = true;
-        return;
-    }
+function verificarCaracteres(texto, caracteresProhibidos){
+    //verificamos si existen caracteres especiales, devolvera false si no existen los caracteres
+    let existenCaracteres = (texto.match(caracteresNoPermitidos) != null)? [true, texto.match(caracteresProhibidos)] : false 
+    return existenCaracteres;
 }
-
-
-
 function eliminarElemento(nombreClaseId){
     document.querySelector(nombreClaseId).remove();
     return;
 }
-function cambiarEstiloElemento(elemento,propieda, valor){
-    window["document"]["querySelector"](elemento)["style"][propieda]=valor;
+function cambiarEstiloElemento(elemento,propiedad, valor){
+    window["document"]["querySelector"](elemento)["style"][propiedad]=valor;
     //window.document.querySelector(elemento).style.backgroundColor=valor;
+    
     return;
+}
+function escribirTexto(elemento, texto){
+    document.querySelector(elemento).innerHTML = texto;
+    return;
+}
+
+function encriptar(){
+    let text = document.getElementById("texto").value;
+    let caracteresEspeciales = verificarCaracteres(text, caracteresNoPermitidos);
+    let textoEncriptado = "";
+
+    if(text != ""){
+        console.log(text);
+        if(caracteresEspeciales == false){
+
+            textoEncriptado = encriptarFrase(text);
+            if(primeraEncriptacion == true){
+                eliminarElemento(".encriptador__resultado__imagen");
+                eliminarElemento(".encriptador__resultado__texto");
+                cambiarEstiloElemento(".encriptador__resultado__texto__encriptado", "display", "flex");
+                escribirTexto("#textoEncriptado", textoEncriptado);
+                primeraEncriptacion = false;
+            }else{
+
+                escribirTexto("#textoEncriptado", textoEncriptado);
+            }
+        }else{
+            let caracterNoPermitido = caracteresEspeciales[1][0];
+            alert(`Ups parece que estas tratando de encriptar una letra no permitida : ${caracterNoPermitido}`)
+        }
+    }else{
+        alert("el campo esta vacio");
+    }
+    
 }
 
 
 
 
+
+
+function desencriptar(){
+    let text = document.getElementById("texto").value;
+    let textoDesencriptado = "";
+
+    if(text != ""){
+        texto = text.split(" ");
+        /*for(let i=0; i<texto.length; i++){
+            textoDesencriptado += desencriptarPalabra(texto[i])+" ";
+        
+        }*/
+        
+       textoDesencriptado = desencriptarPalabra(text);
+        if(primeraEncriptacion == true){
+            eliminarElemento(".encriptador__resultado__imagen");
+            eliminarElemento(".encriptador__resultado__texto");
+            cambiarEstiloElemento(".encriptador__resultado__texto__encriptado", "display", "flex");
+            escribirTexto("#textoEncriptado", textoDesencriptado);
+            primeraEncriptacion = false
+        }else{
+            escribirTexto("#textoEncriptado", textoDesencriptado);
+        }
+        
+    }else{
+        alert("el campo esta vacio");
+    }
+}
+
+function copiar(){
+    let text = document.getElementById("textoEncriptado").innerText;
+    
+    console.log(text);
+    navigator.clipboard.writeText(text);
+    
+}
 

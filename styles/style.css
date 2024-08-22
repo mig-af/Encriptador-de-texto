@@ -101,14 +101,14 @@ body{
     font-weight: 600;
     
 }
-.encriptador__contenido__botonEncriptar:hover{
+.encriptador__contenido__botonEncriptar:active{
     background-color: var(--color-extra);
     color: var(--color-terciario);
     box-shadow: 0 0 20px ;
     
     
 }
-.encriptador__contenido__botonDesencriptar:hover{
+.encriptador__contenido__botonDesencriptar:active{
     background-color: var(--color-secundario);
     color: var(--color-extra);
     box-shadow: 0 0  20px var(--color-terciario);

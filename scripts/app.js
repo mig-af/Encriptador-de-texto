@@ -124,16 +124,19 @@ function encriptar(){
                 asignarTexto("#textoEncriptado", textoEncriptado);
                 primeraEncriptacion = false;
                 ventanitaEmergente("Texto encriptado con exito 😈", 2, colorAcertar);
+                cambiarEstiloElemento(".encriptador__contenido__texto", "color", "black");
             
             }else{
 
                 asignarTexto("#textoEncriptado", textoEncriptado);
                 ventanitaEmergente("Texto encriptado con exito 😈", 2, colorAcertar);
+                cambiarEstiloElemento(".encriptador__contenido__texto", "color", "black");
             }
         }else{
             let caracterNoPermitido = caracteresEspeciales[1][0];
             ventanitaEmergente(`😿Parece que estas tratando de encriptar una letra no permitida:👉 ${caracterNoPermitido}`, 4, colorError);
             //alert(`Ups parece que estas tratando de encriptar una letra no permitida : ${caracterNoPermitido}`)
+            cambiarEstiloElemento(".encriptador__contenido__texto", "color", "red");
         }
     }else{
         ventanitaEmergente("El campo esta vacio", 2, colorError);

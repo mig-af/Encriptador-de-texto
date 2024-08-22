@@ -69,8 +69,9 @@ body{
 .encriptador__contenido__texto{
     padding: 10px;
     font-size: 0.75rem;
-    font-weight: 400;
+    font-weight: 600;
     color: var(--color-secundario);
+
 }
 .encriptador__contenido__botones{
     display: flex;

@@ -6,6 +6,7 @@
     
     <link rel="stylesheet" href="./styles/style.css">
     <title>Encriptador</title>
+    <link rel="shortcut icon" href="https://www.pngall.com/wp-content/uploads/12/Encryption-Network-PNG-Clipart.png" type="image/x-icon">
 </head>
 
 <body>
@@ -18,10 +19,12 @@
             <textarea class="encriptador__contenido__input" name="texto" id="texto" placeholder="Ingrese el texto aqui"></textarea>
             
             <p class="encriptador__contenido__texto" ><img src="./assets/exclamacion.png" alt="imagen signo exclamacion"> Solo letras minúsculas y sin acentos</p>
+            
+            
             <section class="encriptador__contenido__botones">
                 
                 <button class="encriptador__contenido__botonEncriptar" onclick="encriptar();" id="encriptar">encriptar</button>
-                <button class="encriptador__contenido__botonDesencriptar" id="desencriptar">desencriptar</button>
+                <button class="encriptador__contenido__botonDesencriptar" onclick="desencriptar();" id="desencriptar">desencriptar</button>
             </section>
         </section>
         
@@ -30,16 +33,21 @@
 
             <div class="encriptador__resultado__texto__encriptado">
                 <p class="texto__encriptado" id="textoEncriptado"></p>
-                <button class="texto__encriptado__boton__copiar">Copiar</button>
+                <button class="texto__encriptado__boton__copiar" onclick="copiar();">Copiar</button>
             </div>
             
             <section class="encriptador__resultado__texto">
                 <p class="encriptador__resultado__texto__mensaje">Ningún mensaje fue encontrado</p>
-                <textarea class="encriptador__resultado__texto__input" name="text" id="text" placeholder="Ingresa el texto que desees encriptar o desencriptar."></textarea>
+                <!--<textarea class="encriptador__resultado__texto__input" name="text" id="text" placeholder="Ingresa el texto que desees encriptar o desencriptar."></textarea> -->
             </section>
         
         </section>
     </main>
+
+    <div class="ventana__temporal">
+        <p class="ventana__temporal__texto"></p>
+    </div>
+
 
     <footer class="footer">
         <p>Desarrollado por Miguel A.F para Alura Latam</p>

@@ -47,18 +47,23 @@ body{
 .encriptador__contenido__input{
     width: 100%;
     border-style: none;
-    background-color: var(--color-principal);
+    background-color: var(--color-extra);
     color: black;
     font-family: "Inter", sans-serif;
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 1.5rem;
     height: 90%;
-    padding-top: 3rem;
+    padding: 2rem;
     resize: none;
+    border-radius: 20px;
+    outline: #495057;
+    
     
 }
 ::placeholder{
+    
     color: var(--color-terciario);
+    
 }
 
 .encriptador__contenido__texto{
@@ -151,8 +156,9 @@ body{
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--color-secundario);
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
 }
+/*
 .encriptador__resultado__texto__input{
     text-align: center;
     border-style: none;
@@ -160,9 +166,32 @@ body{
     font-size: 1rem;
     resize: none;
     
+}*/
+
+.ventana__temporal{
+    
+    background-color: var(--color-terciario);
+    display: none;
+    width: 45%;
+    height: auto;
+    border-radius: 15px;
+    opacity: 0.9;
+    position:fixed;
+    z-index: 99;
+    color:var(--color-principal);
+    align-items: center;
+    justify-content: center;
+    top:35vh;
+    margin-left:30%;
+    font-weight: 400;
+    padding:2rem 1rem;
+    font-size: 0.9rem;
+    
 }
+
 .footer{
-    padding: 1.5rem;
+    padding: 1rem;
+    color: var(--color-principal);
     background-color: var(--color-secundario);
     font-family: var(--fuente-principal);
     text-align: center;
@@ -200,7 +229,7 @@ body{
     .encriptador__resultado{
         width: 100%;
         padding: 1.2em;
-        margin: 1rem 0 1rem ;
+        margin: 1rem 0 2rem;
         height: 30vh;
         
     }
@@ -246,7 +275,7 @@ body{
         padding: 1.8rem;
     }
     .encriptador__resultado{
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
     }
     
 }

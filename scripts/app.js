@@ -1,7 +1,7 @@
 
 let letrasParaDesencriptar = [/ai/g, /enter/g, /imes/g, /ober/g, /ufat/g];
 let vocales = ["a", "e", "i", "o", "u"];
-let caracteresNoPermitidos = /[A-Zá-úà-ùÑ!@#$%^&*)(_+\-=\[\]{};:"\\|,.<>\/?¿Çªº¡^¨'|]/g
+let caracteresNoPermitidos = /[A-Zá-úà-ùÑ!@#$%^&*)(_+\-=\[\]{};:"\\|,.<>\/?¿Çªº¡^¨'´`|]/g
 let primeraEncriptacion = true;
 
 //colores

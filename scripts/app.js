@@ -91,21 +91,6 @@ function ventanitaEmergente(mensaje, duracionSegundos, color){
 
 }
 
-function animarTexto(elemento,texto, tiempo, color){
-
-    let cont = 0;
-    let text = document.querySelector(elemento);
-    
-    
-    let interv = setInterval(()=>{
-        if(cont == tiempo){
-            clearInterval(interv);
-        }
-    }, 1000)
-}
-
-
-
 
 function encriptar(){
     let text = document.getElementById("texto").value;

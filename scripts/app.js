@@ -3,7 +3,7 @@ let letrasParaDesencriptar = [/ai/g, /enter/g, /imes/g, /ober/g, /ufat/g];
 let vocales = ["a", "e", "i", "o", "u"];
 let caracteresNoPermitidos = /[A-Zá-úà-ùÑ!@#$%^&*)(_+\-=\[\]{};:"\\|,.<>\/?¿Çªº¡^¨'´`|0-9]/g
 let primeraEncriptacion = true;
-let verificarCaracteres = false;
+let verificarCaracteresEspeciales = false;
 
 
 //colores ventana emergente
@@ -54,12 +54,12 @@ function encriptarTexto(texto){
 
 
 function verificarCaracteres(texto){
-    if(verificarCaracteres == true){
+    if(verificarCaracteresEspeciales == true){
         //verificamos si existen caracteres especiales, devolvera false si no existen los caracteres
         let existenCaracteres = (texto.match(caracteresNoPermitidos) != null)? [true, texto.match(caracteresNoPermitidos)] : false 
         return existenCaracteres;
     }else{
-        return verificarCaracteres;
+        return verificarCaracteresEspeciales;
     }
 }
 function eliminarElemento(nombreClaseId){

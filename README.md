@@ -11,6 +11,5 @@ i : imes</br>
 o : ober </br>
 u : ufat</br>
 
-Este proyecto fue realizado gracias al conocimiento adquirido de los cursos impartidos por la empresa Alura Latam :) 
-Este es el challenge "Encriptador de texto" parte de la finalizacion de todos los cursos 
+
 
